@@ -1,10 +1,10 @@
-import IntroTemplate from 'intro-template'
+import type { NextPage } from "next";
 
-export default function IndexPage() {
+const IndexPage: NextPage = () => {
   return (
-    <>
-      {/* Start something new 💖 */}
-      <IntroTemplate />
-    </>
+    <div>
+      <h1>Content</h1>
+    </div>
   )
 }
+export default IndexPage

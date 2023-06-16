@@ -1,10 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Link from 'next/link'
+import NavItem from './navitem'
+import { useSchema } from 'sanity';
+
+const MENU_LIST = [
+    { text: "Home", href: "/" },
+    { text: "About Us", href: "/about" },
+    { text: "Contact", href: "/contact" },
+];
 
 const Navbar = () => {
+    const [navActive, setNavActive] = useState(null);
+    const [activeIdx, setActiveIdx] = useState(-1);
+
     return (
-        <div>
-            <h1>Navbar</h1>
-        </div>
+        <header>
+            <nav className={`nav`}>
+                <Link href={"/"} legacyBehavior>
+                    <a>
+                        <h1 className='logo'>Car Show Room</h1>
+                    </a>
+                </Link>
+                <div onClick={() => setNavActive(!navActive)} className={`nav__menu-bar`}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div className={`${navActive ? "active" : ""} nav__menu-list`}>
+                    {MENU_LIST.map((menu, idx) => (
+                        <div onClick={() => {
+                            setActiveIdx(idx);
+                            setNavActive(false);
+                        }}
+                            key={menu.text}>
+                            <NavItem active={activeIdx === idx} {...menu} />
+                        </div>
+                    ))}
+                </div>
+            </nav>
+
+
+        </header>
     )
 }
 

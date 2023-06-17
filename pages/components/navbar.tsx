@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import NavItem from './navitem'
-import { useSchema } from 'sanity';
 
 const MENU_LIST = [
     { text: "Home", href: "/" },

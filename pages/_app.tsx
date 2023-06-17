@@ -1,7 +1,7 @@
 import 'styles/global.css'
 
 import { IBM_Plex_Mono, Inter, PT_Serif } from '@next/font/google'
-import Layout from './components/layout'
+import Layout from '../components/layout'
 import { AppProps } from 'next/app'
 
 const mono = IBM_Plex_Mono({
